@@ -38,3 +38,25 @@ Consumer 0 took the item 3
 Consumer 2 took the item 2
 Consumer 1 took the item 1
 ```
+### 3. CyclicBarrierDemo
+Description:
+```
+ * Order 10 threads to first operate the additions and then multiplications on a shared variable using CyclicBarrier[1]
+ * [1] Releases when a number of threads are waiting
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/CyclicBarrierDemo.java)
+
+Sample output:
+```console
+Counter Adder-0 changed the value and now is 5
+Counter Adder-1 changed the value and now is 10
+Counter Adder-2 changed the value and now is 15
+Counter Adder-3 changed the value and now is 20
+Counter Adder-4 changed the value and now is 25
+Counter Multiplier-1 changed the value and now is 50
+Counter Multiplier-0 changed the value and now is 100
+Counter Multiplier-2 changed the value and now is 200
+Counter Multiplier-3 changed the value and now is 400
+Counter Multiplier-4 changed the value and now is 800
+Final value and is 800
+```
