@@ -86,3 +86,36 @@ Counter Multiplier-2 changed the value and now is 400
 Counter Multiplier-3 changed the value and now is 800
 Final value and is 800
 ```
+### 5. SemaphoreDemo.java
+Description:
+```
+/**
+ * Simple example of using Semaphore[1] to control access to shared resources
+ * [1] Can be used by multiple threads at the same time and includes a counter to track availability
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/SemaphoreDemo.java)
+
+Sample output:
+```console
+EV0 is charging..
+EV1 is charging..
+EV2 is charging..
+EV3 is charging..
+EV4 is charging..
+EV2 finished charging.
+EV5 is charging..
+EV4 finished charging.
+EV6 is charging..
+EV1 finished charging.
+EV7 is charging..
+EV0 finished charging.
+EV8 is charging..
+EV3 finished charging.
+EV9 is charging..
+EV7 finished charging.
+EV8 finished charging.
+EV5 finished charging.
+EV6 finished charging.
+EV9 finished charging.
+```
