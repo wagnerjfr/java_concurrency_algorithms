@@ -27,7 +27,7 @@ public class BlockingQueueDemo {
             int nItems = 1;
             while (nItems <= 20) {
                 try {
-                    if (pipeline.remainingCapacity() != 0) {
+                    if (pipeline.remainingCapacity() > 0) {
                         String item = "item" + nItems;
                         pipeline.add(item);
                         String capacity = String.format(" [%d/%d]", pipeline.size(), CAPACITY);
@@ -42,6 +42,17 @@ public class BlockingQueueDemo {
                     e.printStackTrace();
                 }
             }
+
+            // Wait for the items to be consume
+            while (pipeline.remainingCapacity() != CAPACITY) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // Send command to stop consumers
             for (int i = 0; i < CONSUMERS; i++) {
                 pipeline.add(STOP);
             }
@@ -73,9 +84,10 @@ public class BlockingQueueDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         BlockingQueue pipeline = new ArrayBlockingQueue<String>(CAPACITY);
         new Producer(pipeline).start();
+        Thread.sleep(100);
         for (int i = 0; i < CONSUMERS; i++) {
             new Consumer("Consumer" + i, pipeline).start();
         }
