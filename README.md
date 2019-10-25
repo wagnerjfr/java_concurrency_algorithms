@@ -119,3 +119,20 @@ EV5 finished charging.
 EV6 finished charging.
 EV9 finished charging.
 ```
+### 6. BlockingQueueDemo
+Description:
+```
+/**
+ * Simple sample of Producer/Consumer using ArrayBlockingQueue (ThreadSafe)
+ * - One Producer adds items in a pipeline in a frequency of 100ms
+ * - The pipeline has a limit of 5 items
+ * - When the pipeline is full, the Producer will wait for 500ms
+ * - Two consumers take items from the pipeline and consumes it in 500ms
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/BlockingQueueDemo.java)
+
+Sample output:
+```console
+coming soon
+```
