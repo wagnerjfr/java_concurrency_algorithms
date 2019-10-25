@@ -134,5 +134,48 @@ Description:
 
 Sample output:
 ```console
-coming soon
+Producer is adding item1 [1/5]
+Consumer0 took item1
+Consumer1 took item2
+Producer is adding item2 [1/5]
+Producer is adding item3 [1/5]
+Producer is adding item4 [2/5]
+Producer is adding item5 [3/5]
+Producer is adding item6 [4/5]
+Consumer0 took item3
+Consumer1 took item4
+Producer is adding item7 [3/5]
+Producer is adding item8 [4/5]
+Producer is adding item9 [5/5]
+Producer queue is full
+Consumer0 took item5
+Consumer1 took item6
+Producer is adding item10 [4/5]
+Producer is adding item11 [5/5]
+Consumer0 took item7
+Consumer1 took item8
+Producer is adding item12 [4/5]
+Producer is adding item13 [5/5]
+Producer queue is full
+Consumer0 took item9
+Consumer1 took item10
+Producer is adding item14 [4/5]
+Producer is adding item15 [5/5]
+Producer queue is full
+Consumer0 took item11
+Consumer1 took item12
+Producer is adding item16 [4/5]
+Consumer0 took item13
+Consumer1 took item14
+Producer is adding item17 [3/5]
+Producer is adding item18 [4/5]
+Producer is adding item19 [5/5]
+Producer queue is full
+Consumer0 took item15
+Consumer1 took item16
+Producer is adding item20 [4/5]
+Consumer0 took item17
+Consumer1 took item18
+Consumer0 took item19
+Consumer1 took item20
 ```
