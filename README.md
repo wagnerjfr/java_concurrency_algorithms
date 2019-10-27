@@ -179,3 +179,18 @@ Consumer1 took item18
 Consumer0 took item19
 Consumer1 took item20
 ```
+### 7. ForkJoinRecursiveTaskDemo
+Description:
+```
+/**
+ * Fork/Join Framework
+ * Framework for executing recursive, divide-and-conquer work with multiple processors
+ * Sample of recursive sum of a range of numbers
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/ForkJoinRecursiveTaskDemo.java)
+
+Sample output:
+```console
+500000000500000000
+```
