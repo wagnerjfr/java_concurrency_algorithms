@@ -194,3 +194,19 @@ Sample output:
 ```console
 500000000500000000
 ```
+### 8. ForkJoinRecursiveActionDemo
+Description:
+```
+/**
+ * Fork/Join Framework
+ * Framework for executing recursive, divide-and-conquer work with multiple processors
+ * Replace the values of a ArrayList from 0 to 1, or from 1 to 0
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/ForkJoinRecursiveActionDemo.java)
+
+Sample output:
+```console
+[0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, <truncated result>
+[1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, <truncated result>
+```
