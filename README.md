@@ -210,3 +210,42 @@ Sample output:
 [0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, <truncated result>
 [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, <truncated result>
 ```
+### 9. ReentrantReadWriteLockDemo
+Description:
+```
+/**
+ * Sample of using ReentrantReadWriteLock
+ * A box with some items and 5 worker threads that can randomly add, remove, peek or print the items
+ * Each worker has 5 of those above operations that is chosen also randomly
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/ReentrantReadWriteLockDemo.java)
+
+Sample output:
+```console
+Worker3 [1/5] removed item 1
+Worker4 [1/5] peeked item 2
+Worker5 [1/5] peeked item 2
+Worker1 [1/5] printed list |2|3|4|5|
+Worker2 [1/5] printed list |2|3|4|5|
+Worker2 [2/5] peeked item 2
+Worker4 [2/5] peeked item 2
+Worker3 [2/5] peeked item 2
+Worker1 [2/5] removed item 2
+Worker5 [2/5] peeked item 3
+Worker5 [3/5] added item 8
+Worker2 [3/5] removed item 3
+Worker4 [3/5] peeked item 4
+Worker3 [3/5] peeked item 4
+Worker1 [3/5] added item 8
+Worker2 [4/5] printed list |4|5|8|8|
+Worker5 [4/5] printed list |4|5|8|8|
+Worker4 [4/5] removed item 4
+Worker3 [4/5] removed item 5
+Worker5 [5/5] printed list |8|8|
+Worker2 [5/5] printed list |8|8|
+Worker3 [5/5] peeked item 8
+Worker1 [4/5] printed list |8|8|
+Worker4 [5/5] removed item 8
+Worker1 [5/5] printed list |8|
+```
