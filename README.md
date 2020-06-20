@@ -249,3 +249,27 @@ Worker1 [4/5] printed list |8|8|
 Worker4 [5/5] removed item 8
 Worker1 [5/5] printed list |8|
 ```
+### 10. CountDownLatchDemo2
+Description:
+```
+/**
+ * Starts 10 Callable tasks in parallel, which one will wait from 1s to 5s and increment an AtomicInteger.
+ * Wait for all 10 threads using CountDownLatch[1] and print the result at the same time in the end.
+ * [1] Releases when a count value reaches zero
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/CountDownLatchDemo2.java)
+
+Sample output:
+```console
+2020-06-20T08:23:52.783Z | counter 4
+2020-06-20T08:23:52.146Z | counter 1
+2020-06-20T08:23:54.452Z | counter 6
+2020-06-20T08:23:55.507Z | counter 9
+2020-06-20T08:23:55.870Z | counter 10
+2020-06-20T08:23:55.317Z | counter 8
+2020-06-20T08:23:54.762Z | counter 7
+2020-06-20T08:23:53.057Z | counter 5
+2020-06-20T08:23:52.558Z | counter 2
+2020-06-20T08:23:52.759Z | counter 3
+```
