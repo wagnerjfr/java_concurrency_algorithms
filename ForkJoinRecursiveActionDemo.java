@@ -39,10 +39,7 @@ public class ForkJoinRecursiveActionDemo {
                 int mid = (start + end) / 2;
                 RecursiveReplace left = new RecursiveReplace(start, mid);
                 RecursiveReplace right = new RecursiveReplace(mid + 1, end);
-                left.fork();
-                right.fork();
-                left.join();
-                right.join();
+                invokeAll(left, right);
             }
         }
     }
