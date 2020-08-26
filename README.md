@@ -273,3 +273,26 @@ Sample output:
 2020-06-20T08:23:52.558Z | counter 2
 2020-06-20T08:23:52.759Z | counter 3
 ```
+### 11. ThreadLocalDemo
+Description:
+```
+/**
+ * In this example, 3 threads will print the 3 consecutive exponential values of 1, 2 and 3.
+ * All of them will be using the SharedUtil class for it.
+ * P.S. SharedUtil uses Java ThreadLocal class which enables us to create variables that can only be read and written by the same thread.
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/ThreadLocalDemo.java)
+
+Sample output:
+```console
+Thread exp2: 2
+Thread exp3: 3
+Thread exp1: 1
+Thread exp1: 1
+Thread exp1: 1
+Thread exp2: 4
+Thread exp3: 9
+Thread exp2: 8
+Thread exp3: 27
+```
