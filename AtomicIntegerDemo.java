@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -23,7 +21,7 @@ public class AtomicIntegerDemo {
         }
     }
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         List<Counter> list = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
