@@ -43,7 +43,7 @@ public class CountDownLatchDemo2 {
 
         List<MyTask> tasks = new ArrayList<>();
         for (int i = 0; i < NUM_TASKS; i++) {
-            tasks.add(new MyTask(latch));
+            tasks.add(new CountDownLatchDemo2.MyTask(latch));
         }
 
         ExecutorService pool = Executors.newFixedThreadPool(NUM_TASKS);
