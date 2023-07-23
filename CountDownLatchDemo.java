@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
@@ -13,15 +11,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * [1] Releases when a count value reaches zero
  */
 public class CountDownLatchDemo {
+    public static int MAX_NUM_THREADS = 10;
+    public static int sum = 0;
+    private static final Lock lock = new ReentrantLock();
+    private static final CountDownLatch barrier = new CountDownLatch(MAX_NUM_THREADS/2);
 
     private static class Counter extends Thread {
-
-        public static int MAX_NUM_THREADS = 10;
-        public static int sum = 0;
-        private static Lock lock = new ReentrantLock();
-        private static CountDownLatch barrier = new CountDownLatch(MAX_NUM_THREADS/2);
-
-        private String name;
+        private final String name;
 
         Counter(String name) {
             this.name = name;
@@ -52,9 +48,9 @@ public class CountDownLatchDemo {
         }
     }
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         List<Counter> list = new ArrayList<>();
-        for (int i = 0; i < Counter.MAX_NUM_THREADS/2 ; i++) {
+        for (int i = 0; i < MAX_NUM_THREADS / 2 ; i++) {
             list.add(new Counter("Adder-" + i));
             list.add(new Counter("Multiplier-" + i));
         }
@@ -64,6 +60,6 @@ public class CountDownLatchDemo {
         for (Counter c : list) {
             c.join();
         }
-        System.out.println("Final value and is " + Counter.sum);
+        System.out.println("Final value and is " + sum);
     }
 }
