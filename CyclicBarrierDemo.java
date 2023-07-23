@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
@@ -12,15 +10,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * [1] Releases when a number of threads are waiting
  */
 public class CyclicBarrierDemo {
+    public static int MAX_NUM_THREADS = 10;
+    public static int sum = 0;
+    private static final Lock lock = new ReentrantLock();
+    private static final CyclicBarrier barrier = new CyclicBarrier(MAX_NUM_THREADS);
 
     private static class Counter extends Thread {
-
-        public static int MAX_NUM_THREADS = 10;
-        public static int sum = 0;
-        private static Lock lock = new ReentrantLock();
-        private static CyclicBarrier barrier = new CyclicBarrier(MAX_NUM_THREADS);
-
-        private String name;
+        private final String name;
 
         Counter(String name) {
             this.name = name;
@@ -53,9 +49,9 @@ public class CyclicBarrierDemo {
         }
     }
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         List<Counter> list = new ArrayList<>();
-        for (int i = 0; i < Counter.MAX_NUM_THREADS/2 ; i++) {
+        for (int i = 0; i < MAX_NUM_THREADS / 2 ; i++) {
             list.add(new Counter("Adder-" + i));
             list.add(new Counter("Multiplier-" + i));
         }
@@ -65,6 +61,6 @@ public class CyclicBarrierDemo {
         for (Counter c : list) {
             c.join();
         }
-        System.out.println("Final value and is " + Counter.sum);
+        System.out.println("Final value and is " + sum);
     }
 }
