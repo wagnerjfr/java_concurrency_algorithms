@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;
@@ -13,11 +11,11 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class ForkJoinRecursiveActionDemo {
 
-    static List<Integer> list = new ArrayList<>();
+    private static final List<Integer> list = new ArrayList<>();
 
-    static class RecursiveReplace extends RecursiveAction {
-
-        private int start, end;
+    private static class RecursiveReplace extends RecursiveAction {
+        private final int start;
+        private final int end;
 
         private RecursiveReplace() {
             this.start = 0;
