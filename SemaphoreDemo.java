@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -8,11 +6,16 @@ import java.util.concurrent.ThreadLocalRandom;
  * [1] Can be used by multiple threads at the same time and includes a counter to track availability
  */
 public class SemaphoreDemo {
+    private static final Semaphore charger = new Semaphore(5);
 
-    static class ElectricalVehicle extends Thread {
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            new ElectricalVehicle("EV" + i).start();
+        }
+    }
 
-        static Semaphore charger = new Semaphore(5);
-        String name;
+    private static class ElectricalVehicle extends Thread {
+        private final String name;
 
         ElectricalVehicle(String name) {
             this.name = name;
@@ -29,12 +32,6 @@ public class SemaphoreDemo {
                 System.out.println(name + " finished charging.");
                 charger.release();
             }
-        }
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            new ElectricalVehicle("EV" + i).start();
         }
     }
 }
