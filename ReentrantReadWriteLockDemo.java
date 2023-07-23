@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -63,7 +61,7 @@ public class ReentrantReadWriteLockDemo {
 
     private static class Worker implements Runnable {
         private static final int MAX_OP = 5;
-        private String name;
+        private final String name;
         private boolean stop = false;
         private int count = 1;
 
