@@ -18,9 +18,27 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class CountDownLatchDemo2 {
     private static final int NUM_TASKS = 10;
-    private static AtomicInteger counter = new AtomicInteger(0);
+    private static final AtomicInteger counter = new AtomicInteger(0);
 
-    public static void main(String args[]) {
+    private static class MyTask implements Callable<String> {
+        private final CountDownLatch latch;
+
+        MyTask(CountDownLatch latch) {
+            this.latch = latch;
+        }
+
+        public String call() throws Exception {
+            try {
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                counter.getAndIncrement();
+            } finally {
+                latch.countDown();
+            }
+            return String.format("%s | counter %d", Instant.now(), counter.get());
+        }
+    }
+
+    public static void main(String[] args) {
         CountDownLatch latch = new CountDownLatch(NUM_TASKS);
 
         List<MyTask> tasks = new ArrayList<>();
@@ -44,24 +62,6 @@ public class CountDownLatchDemo2 {
             e.printStackTrace();
         } finally {
             pool.shutdown();
-        }
-    }
-
-    private static class MyTask implements Callable<String> {
-        private CountDownLatch latch;
-
-        MyTask(CountDownLatch latch) {
-            this.latch = latch;
-        }
-
-        public String call() throws Exception {
-            try {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
-                counter.getAndIncrement();
-            } finally {
-                latch.countDown();
-            }
-            return String.format("%s | counter %d", Instant.now(), counter.get());
         }
     }
 }
