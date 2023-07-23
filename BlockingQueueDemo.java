@@ -1,13 +1,10 @@
-package main.concurrency;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
  * Simple sample of Producer/Consumer using ArrayBlockingQueue (ThreadSafe)
- * - One Producer adds items in a pipeline in a frequency of 100ms
+ * - One Producer adds items in a pipeline in a frequency of 200ms
  * - The pipeline has a limit of 5 items
- * - When the pipeline is full, the Producer will wait for 500ms
  * - Two consumers take items from the pipeline and consumes it in 500ms
  */
 public class BlockingQueueDemo {
@@ -16,10 +13,10 @@ public class BlockingQueueDemo {
     private static final int CONSUMERS = 2;
     private static final int CAPACITY = 5;
 
-    static class Producer extends Thread {
-        BlockingQueue pipeline;
+    private static class Producer extends Thread {
+        private final BlockingQueue<String> pipeline;
 
-        Producer(BlockingQueue pipeline) {
+        Producer(BlockingQueue<String> pipeline) {
             this. pipeline = pipeline;
         }
 
@@ -27,17 +24,12 @@ public class BlockingQueueDemo {
             int nItems = 1;
             while (nItems <= 20) {
                 try {
-                    if (pipeline.remainingCapacity() > 0) {
-                        String item = "item" + nItems;
-                        pipeline.add(item);
-                        String capacity = String.format(" [%d/%d]", pipeline.size(), CAPACITY);
-                        System.out.println("Producer is adding " + item + capacity );
-                        nItems++;
-                        Thread.sleep(100);
-                    } else {
-                        System.out.println("Producer queue is full");
-                        Thread.sleep(500);
-                    }
+                    String item = "item" + nItems;
+                    pipeline.offer(item);
+                    String capacity = String.format(" [%d/%d]", pipeline.size(), CAPACITY);
+                    System.out.println("Producer is adding " + item + capacity );
+                    nItems++;
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -59,11 +51,11 @@ public class BlockingQueueDemo {
         }
     }
 
-    static class Consumer extends Thread {
-        BlockingQueue pipeline;
-        String name;
+    private static class Consumer extends Thread {
+        private final BlockingQueue<String> pipeline;
+        private final String name;
 
-        Consumer(String name, BlockingQueue pipeline) {
+        Consumer(String name, BlockingQueue<String> pipeline) {
             this.name = name;
             this. pipeline = pipeline;
         }
@@ -71,7 +63,7 @@ public class BlockingQueueDemo {
         public void run() {
             while (true) {
                 try {
-                    String item = (String)pipeline.take();
+                    String item = pipeline.take();
                     if (item.equals(STOP)) {
                         break;
                     }
@@ -85,7 +77,7 @@ public class BlockingQueueDemo {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        BlockingQueue pipeline = new ArrayBlockingQueue<String>(CAPACITY);
+        BlockingQueue<String> pipeline = new ArrayBlockingQueue<>(CAPACITY);
         new Producer(pipeline).start();
         Thread.sleep(100);
         for (int i = 0; i < CONSUMERS; i++) {
