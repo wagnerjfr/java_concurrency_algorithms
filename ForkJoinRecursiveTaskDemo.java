@@ -1,5 +1,3 @@
-package main.concurrency;
-
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
@@ -10,9 +8,9 @@ import java.util.concurrent.RecursiveTask;
  */
 public class ForkJoinRecursiveTaskDemo {
 
-    static class RecursiveSum extends RecursiveTask<Long> {
-
-        long start, end;
+    private static class RecursiveSum extends RecursiveTask<Long> {
+        private final long start;
+        private final long end;
 
         RecursiveSum(long start, long end) {
             this.start = start;
