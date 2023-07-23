@@ -1,5 +1,3 @@
-package thread;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -10,9 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ThreadLocalDemo {
 
     public static void main(String[] args) {
-
         new ThreadLocalDemo().execute();
-
     }
 
     private void execute() {
@@ -21,11 +17,10 @@ public class ThreadLocalDemo {
         }
     }
 
-    private class Task implements Runnable {
+    private static class Task implements Runnable {
+        private final int num;
 
-        private int num;
-
-        Task(int num) {
+        private Task(int num) {
             this.num = num;
         }
 
@@ -47,8 +42,8 @@ public class ThreadLocalDemo {
     }
 
     private static class SharedUtil {
-        private static ThreadLocal<Integer> threadLocalCounter = ThreadLocal.withInitial(() -> 0);
-        private static ThreadLocal<Integer> threadLocalAccumulator = ThreadLocal.withInitial(() -> 0);
+        private static final ThreadLocal<Integer> threadLocalCounter = ThreadLocal.withInitial(() -> 0);
+        private static final ThreadLocal<Integer> threadLocalAccumulator = ThreadLocal.withInitial(() -> 0);
 
         static void setCounter(int number) {
             threadLocalCounter.set(number);
