@@ -1,5 +1,13 @@
-# java_concurrency_algorithms
-Java algorithms examples using concurrency
+# Java Concurrent Animated - Visualizing the Java Concurrent API
+## A Swing Application Demonstrating Core Java Concurrency Concepts
+
+Have you ever found yourself pondering how multiple threads work in Java and how to effectively utilize concepts like "notify", "notifyAll", and "wait"? Moreover, why is the usage of the "synchronized" keyword crucial in concurrent programming? Wouldn't it be amazing to witness this in action?
+
+Introducing Java Concurrent Animated, a Swing application crafted by the Java Champion **[Victor Grazi](https://blogs.oracle.com/java/post/victor-grazi-java-champion)**. This program serves as an illustrative showcase of core Java Concurrency concepts, including but not limited to AtomicInteger, CountDownLatch, Semaphore, ReentrantLock, ReadWriteLock, and more.
+
+```
+Soon link to Medium Article
+```
 
 ### 1. AtomicIntegerDemo
 Description:
@@ -124,9 +132,8 @@ Description:
 ```
 /**
  * Simple sample of Producer/Consumer using ArrayBlockingQueue (ThreadSafe)
- * - One Producer adds items in a pipeline in a frequency of 100ms
+ * - One Producer adds items in a pipeline in a frequency of 200ms
  * - The pipeline has a limit of 5 items
- * - When the pipeline is full, the Producer will wait for 500ms
  * - Two consumers take items from the pipeline and consumes it in 500ms
  */
 ```
@@ -135,49 +142,45 @@ Description:
 Sample output:
 ```console
 Producer is adding item1 [1/5]
-Consumer0 took item1
-Consumer1 took item2
+Consumer1 took item1
+Consumer0 took item2
 Producer is adding item2 [1/5]
 Producer is adding item3 [1/5]
-Producer is adding item4 [2/5]
-Producer is adding item5 [3/5]
-Producer is adding item6 [4/5]
-Consumer0 took item3
-Consumer1 took item4
-Producer is adding item7 [3/5]
-Producer is adding item8 [4/5]
-Producer is adding item9 [5/5]
-Producer queue is full
-Consumer0 took item5
-Consumer1 took item6
-Producer is adding item10 [4/5]
-Producer is adding item11 [5/5]
-Consumer0 took item7
-Consumer1 took item8
-Producer is adding item12 [4/5]
-Producer is adding item13 [5/5]
-Producer queue is full
-Consumer0 took item9
-Consumer1 took item10
-Producer is adding item14 [4/5]
-Producer is adding item15 [5/5]
-Producer queue is full
-Consumer0 took item11
-Consumer1 took item12
+Consumer1 took item3
+Producer is adding item4 [1/5]
+Consumer0 took item4
+Producer is adding item5 [1/5]
+Producer is adding item6 [2/5]
+Consumer1 took item5
+Consumer0 took item6
+Producer is adding item7 [1/5]
+Producer is adding item8 [2/5]
+Consumer1 took item7
+Producer is adding item9 [2/5]
+Consumer0 took item8
+Producer is adding item10 [2/5]
+Producer is adding item11 [3/5]
+Consumer1 took item9
+Consumer0 took item10
+Producer is adding item12 [2/5]
+Producer is adding item13 [3/5]
+Consumer1 took item11
+Producer is adding item14 [3/5]
+Consumer0 took item12
+Producer is adding item15 [3/5]
 Producer is adding item16 [4/5]
-Consumer0 took item13
-Consumer1 took item14
+Consumer1 took item13
+Consumer0 took item14
 Producer is adding item17 [3/5]
 Producer is adding item18 [4/5]
-Producer is adding item19 [5/5]
-Producer queue is full
-Consumer0 took item15
-Consumer1 took item16
+Consumer1 took item15
+Producer is adding item19 [4/5]
+Consumer0 took item16
 Producer is adding item20 [4/5]
-Consumer0 took item17
-Consumer1 took item18
-Consumer0 took item19
-Consumer1 took item20
+Consumer1 took item17
+Consumer0 took item18
+Consumer1 took item19
+Consumer0 took item20
 ```
 ### 7. ForkJoinRecursiveTaskDemo
 Description:
