@@ -265,16 +265,16 @@ Description:
 
 Sample output:
 ```console
-2020-06-20T08:23:52.783Z | counter 4
-2020-06-20T08:23:52.146Z | counter 1
-2020-06-20T08:23:54.452Z | counter 6
-2020-06-20T08:23:55.507Z | counter 9
-2020-06-20T08:23:55.870Z | counter 10
-2020-06-20T08:23:55.317Z | counter 8
-2020-06-20T08:23:54.762Z | counter 7
-2020-06-20T08:23:53.057Z | counter 5
-2020-06-20T08:23:52.558Z | counter 2
-2020-06-20T08:23:52.759Z | counter 3
+2023-07-23T16:29:25.091Z | counter 1
+2023-07-23T16:29:26.428Z | counter 6
+2023-07-23T16:29:25.192Z | counter 2
+2023-07-23T16:29:28.022Z | counter 10
+2023-07-23T16:29:27.134Z | counter 8
+2023-07-23T16:29:25.205Z | counter 3
+2023-07-23T16:29:26.668Z | counter 7
+2023-07-23T16:29:25.511Z | counter 5
+2023-07-23T16:29:25.390Z | counter 4
+2023-07-23T16:29:27.178Z | counter 9
 ```
 ### 11. ThreadLocalDemo
 Description:
