@@ -299,3 +299,25 @@ Thread exp3: 9
 Thread exp2: 8
 Thread exp3: 27
 ```
+### 12. SynchronizedDemo
+Description:
+```
+/**
+ * In this example, we have two threads, threadA and threadB, that share a common object lock. threadA enters a synchronized
+ * block, does some work, then calls lock.wait() to wait for threadB to notify it. threadB, in its synchronized block, does some work,
+ * and then calls lock.notify() to notify threadA to resume.
+ * When you run this code, you'll observe that threadA will wait until threadB calls lock.notify(), demonstrating how synchronization
+ * using synchronized, wait, and notify ensures proper coordination between the two threads.
+ */
+```
+[Code link](https://github.com/wagnerjfr/java_concurrency_algorithms/blob/master/SynchronizedDemo.java)
+
+Sample output:
+```console
+Thread A is doing some work.
+Thread A is waiting for Thread B to notify.
+Thread B is doing some work.
+Thread B is notifying Thread A to resume.
+Thread A is resuming its work.
+Both threads have completed.
+```
