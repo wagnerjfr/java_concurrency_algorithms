@@ -5,9 +5,7 @@ Have you ever found yourself pondering how multiple threads work in Java and how
 
 Introducing Java Concurrent Animated, a Swing application crafted by the Java Champion **[Victor Grazi](https://blogs.oracle.com/java/post/victor-grazi-java-champion)**. This program serves as an illustrative showcase of core Java Concurrency concepts, including but not limited to AtomicInteger, CountDownLatch, Semaphore, ReentrantLock, ReadWriteLock, and more.
 
-```
-Soon link to Medium Article
-```
+## ⭐ [Medium Full Article Link](https://medium.com/javarevisited/java-concurrent-animated-visualizing-the-java-concurrent-api-e54d0708fd7a)
 
 ### 1. AtomicIntegerDemo
 Description:
