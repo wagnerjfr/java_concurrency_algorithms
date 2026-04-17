@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javaConcurrentAnimated">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/javaConcurrentAnimated.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
