@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Logs / temp
+*.log
+*.tmp
+
+# Java compiled artifacts
+*.class
+
+# IntelliJ IDEA
+.idea/
+out/
+*.iml
+
+# Build directories
+build/
+target/

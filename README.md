@@ -7,6 +7,19 @@ Introducing Java Concurrent Animated, a Swing application crafted by the Java Ch
 
 ## ⭐ [Medium Full Article Link](https://medium.com/javarevisited/java-concurrent-animated-visualizing-the-java-concurrent-api-e54d0708fd7a)
 
+### Local Swing Visualizer (new)
+
+This repository now also includes a local Swing desktop app:
+
+Run it from the project root:
+
+```bash
+javac ConcurrencyVisualizerApp.java
+java ConcurrencyVisualizerApp
+```
+
+You can also run `ConcurrencyVisualizerApp.main()` directly from IntelliJ.
+
 ### 1. AtomicIntegerDemo
 Description:
 ```
